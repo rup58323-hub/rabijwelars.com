@@ -1,0 +1,65 @@
+ body {
+      font-family: Arial, sans-serif;
+      background: url("https://media.istockphoto.com/id/1338830019/vector/vector-illustration-golden-ribbon-circle-on-black-background.jpg?s=612x612&w=0&k=20&c=P0utRq7iOkdACPBXxZC_poN-UCLdBZYhqmo8PK1pApY=") no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.9); /* semi-transparent for readability */
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4facfe;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-container button:hover {
+      background-color: #3b8efc;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #nextPageLink {
+      display: none;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4facfe;
+      font-weight: bold;
+    }
+
+    #nextPageLink:hover {
+      text-decoration: underline;
+    }
+  text-transform: capitalize;
+}

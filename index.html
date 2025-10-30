@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Yeadb’s Jewelry</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+  }
+  header {
+    background-color: #111;
+    color: white;
+    padding: 15px 0;
+  }
+  header .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #logo {
+    color: gold;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .right-links ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  .right-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  nav {
+    background-color: #222;
+  }
+  nav .container ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+  }
+  nav .container ul li {
+    margin: 5px 15px;
+  }
+  nav .container ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  #slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  #slider ul {
+    display: flex;
+    width: 300%;
+    animation: slide 15s infinite;
+  }
+  #slider li {
+    min-width: 50%;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+  #slider h2 {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+  #slider .btn-more {
+    background-color: gold;
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+  @keyframes slide {
+    0% {transform: translateX(0);}
+    33% {transform: translateX(-100%);}
+    66% {transform: translateX(-200%);}
+    100% {transform: translateX(0);}
+  }
+  #body {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+  }
+  .last-products h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .products article {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  .products article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .products img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .btn-add {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: gold;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .quick-links {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+  }
+  .quick-links article {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  .quick-links .text {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .quick-links hr {
+    width: 50%;
+    border: 1px solid gold;
+  }
+
+  footer {
+    background-color: #111;
+    color: white;
+    padding: 30px 0;
+  }
+  footer .container {
+    width: 90%;
+    margin: auto;
+  }
+  footer .cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  footer .col {
+    flex: 1;
+    min-width: 200px;
+  }
+  footer .col h3 {
+    color: gold;
+    margin-bottom: 10px;
+  }
+  footer ul {
+    list-style: none;
+  }
+  footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+  }
+  footer ul li a:hover {
+    color: gold;
+  }
+  .copy {
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+  }
+
+  /* Responsive Tweaks */
+  @media(max-width:768px){
+    header .container {
+      flex-direction: column;
+      text-align: center;
+    }
+    nav .container ul {
+      flex-direction: column;
+    }
+    #slider h2 {font-size: 22px;}
+    .products img {height: 140px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <a href="index.html" id="logo" title="Yeadb’s Jewelry">Yeadb’s Jewelry</a>
+    <div class="right-links">
+      <ul>
+        <li><a href="cart.html">3 products, $4 500.00</a></li>
+        <li><a href="#">Account</a></li>
+        <li><a href="login.html">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<nav id="menu">
+  <div class="container">
+    <ul>
+      <li><a href="products.html">New collection</a></li>
+      <li><a href="products.html">Necklaces</a></li>
+      <li><a href="products.html">Earrings</a></li>
+      <li><a href="products.html">Rings</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="products.html">Promotions</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="slider">
+  <ul>
+    <li style="background-image:url('images/n1.jpg')">
+      <h3>Make your life better</h3>
+      <h2>Genuine diamonds</h2>
+      <a href="#" class="btn-more">Read more</a>
+    </li>
+    <li style="background-image:url('images/n2.jpg')">
+      <h3>She will say “yes”</h3>
+      <h2>Engagement ring</h2>
+      <a href="#" class="btn-more">Read more</a>
+    </li>
+    <li style="background-image:url('images/n3.jpg')">
+      <h3>You deserve to be beauty</h3>
+      <h2>Golden bracelets</h2>
+      <a href="#" class="btn-more">Read more</a>
+    </li>
+  </ul>
+</div>
+
+<div id="body">
+  <div class="last-products">
+    <h2>Last added products</h2>
+    <section class="products">
+      <article>
+        <img src="img/ring.jpg" alt="">
+        <h3>Excepteur sint occaecat</h3>
+        <h4>$1 850.00</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+      </article>
+      <article>
+        <img src="img/ww.jpg" alt="">
+        <h3>Lorem ipsum dolor</h3>
+        <h4>$990.00</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+      </article>
+      <article>
+        <img src="img/ee.jpg" alt="">
+        <h3>Cupidatat non proident</h3>
+        <h4>$1 200.00</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+      </article>
+      <article>
+        <img src="img/j4.jpg" alt="">
+        <h3>Duis aute irure</h3>
+        <h4>$2 650.00</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+      </article>
+      <article>
+        <img src="img/ff.jpg" alt="">
+        <h3>Magna aliqua</h3>
+        <h4>$3 500.00</h4>
+        <a href="cart.html" class="btn-add">Add to cart</a>
+      </article>
+    </section>
+  </div>
+
+  <section class="quick-links">
+    <article style="background-image: url('images/69.jpg')">
+      <a href="#" class="table"><div class="text"><h4>Lorem ipsum</h4><hr><h3>Dolor sit amet</h3></div></a>
+    </article>
+    <article style="background-image: url('images/68.jpg')">
+      <a href="#" class="table"><div class="text"><h4>Consequatur</h4><hr><h3>Voluptatem</h3></div></a>
+    </article>
+    <article style="background-image: url('images/67.jpg')">
+      <a href="#" class="table"><div class="text"><h4>Culpa qui officia</h4><hr><h3>Magnam aliquam</h3></div></a>
+    </article>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="cols">
+      <div class="col">
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+          <li><a href="#">Fusce eget dolor adipiscing</a></li>
+          <li><a href="#">Posuere nisl eu venenatis gravida</a></li>
+          <li><a href="#">Morbi dictum ligula mattis</a></li>
+          <li><a href="#">Etiam diam vel dolor luctus dapibus</a></li>
+          <li><a href="#">Vestibulum ultrices magna</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Social Media</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="col contact">
+        <h3>Contact Us</h3>
+        <p>Yeadb’s Jewelry INC.<br>54233 Avenue Street<br>New York</p>
+        <p>Email: <a href="#">contact@yeadbjewelry.com</a></p>
+        <p>Phone: (590) 423 446 924</p>
+      </div>
+    </div>
+    <p class="copy">© 2025 Yeadb’s Jewelry. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XML Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("https://media.istockphoto.com/id/1338830019/vector/vector-illustration-golden-ribbon-circle-on-black-background.jpg?s=612x612&w=0&k=20&c=P0utRq7iOkdACPBXxZC_poN-UCLdBZYhqmo8PK1pApY=") 
+                  no-repeat center center fixed;
+      background-size: cover;      /* ✅ makes background cover full screen */
+      background-attachment: fixed;/* ✅ keeps it fixed while scrolling */
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: capitalize;  /* ✅ applied correctly */
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.9); 
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4facfe;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-container button:hover {
+      background-color: #3b8efc;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #nextPageLink {
+      display: none;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4facfe;
+      font-weight: bold;
+    }
+
+    #nextPageLink:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <div class="message" id="message"></div>
+    <a id="nextPageLink" href="index.html">➡ Go to Next Page</a>
+  </div>
+
+  <script>
+    const xmlData = `
+      <users>
+        <user>
+          <username>admin</username>
+          <password>Rabisankar@2003</password>
+        </user>
+        <user>
+          <username>user</username>
+          <password>password</password>
+        </user>
+      </users>
+    `;
+
+    function login() {
+      const inputUsername = document.getElementById('username').value.trim();
+      const inputPassword = document.getElementById('password').value.trim();
+      const message = document.getElementById('message');
+      const nextPageLink = document.getElementById('nextPageLink');
+
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+      const users = xmlDoc.getElementsByTagName('user');
+      let success = false;
+
+      for (let i = 0; i < users.length; i++) {
+        const username = users[i].getElementsByTagName('username')[0].textContent;
+        const password = users[i].getElementsByTagName('password')[0].textContent;
+
+        if (username === inputUsername && password === inputPassword) {
+          success = true;
+          break;
+        }
+      }
+
+      if (success) {
+        message.style.color = 'green';
+        message.textContent = "✅ Login successful!";
+        nextPageLink.style.display = 'block';
+      } else {
+        message.style.color = 'red';
+        message.textContent = "❌ Invalid username or password.";
+        nextPageLink.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
